@@ -1,1 +1,2 @@
 # String-Calculator
+This is a school project that will teach us to use test driven developement.
