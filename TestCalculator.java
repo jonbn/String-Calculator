@@ -8,4 +8,9 @@ public class TestCalculator {
 		Calculator calculator = new Calculator();
 		Assert.assertEquals(calculator.add(""), 0);
 	}
+	
+	public void ThisShouldReturnOneNumber() {
+		Calculator calculator = new Calculator();
+		Assert.assertEquals(calculator.add("2"), 2);
+	}
 }
