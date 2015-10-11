@@ -22,7 +22,8 @@ public class Calculator {
 			}
 			else
 			{
-				String[] arr = string.split(",");
+				String regexp = "[\\n,]";
+				String[] arr = string.split(regexp);
 				// Need to handle unlimited number of arguments
 				int sum = 0;
 				for (int i=0; i<arr.length; i++) {

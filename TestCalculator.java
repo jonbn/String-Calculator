@@ -28,4 +28,8 @@ public class TestCalculator {
 	public void ThisWillTestManyArguments() {
 		Assert.assertEquals(calc.add("2,3,4,5,6,7"), 27);
 	}
+	@Test
+	public void ThisWillTestNewlines() {
+		Assert.assertEquals(calc.add("1\n2,3"), 6);
+	}
 }
