@@ -23,7 +23,12 @@ public class Calculator {
 			else
 			{
 				String[] arr = string.split(",");
-				return (StringToInt(arr[0]) + StringToInt(arr[1]));
+				// Need to handle unlimited number of arguments
+				int sum = 0;
+				for (int i=0; i<arr.length; i++) {
+					sum += StringToInt(arr[i]);
+				}
+				return sum;
 			}
 			
 		}

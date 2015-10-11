@@ -24,4 +24,8 @@ public class TestCalculator {
 	public void ThisShouldReturnTheSumofNumbers() {
 		Assert.assertEquals(calc.add("2,3"), 5);
 	}
+	@Test
+	public void ThisWillTestManyArguments() {
+		Assert.assertEquals(calc.add("2,3,4,5,6,7"), 27);
+	}
 }
