@@ -13,4 +13,9 @@ public class TestCalculator {
 		Calculator calculator = new Calculator();
 		Assert.assertEquals(calculator.add("2"), 2);
 	}
+	
+	public void ThisShouldReturnTheSumofNumbers() {
+		Calculator calculator = new Calculator();
+		Assert.assertEquals(calculator.add("2,3"), 5);
+	}
 }
