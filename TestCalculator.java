@@ -32,4 +32,8 @@ public class TestCalculator {
 	public void ThisWillTestNewlines() {
 		Assert.assertEquals(calc.add("1\n2,3"), 6);
 	}
+	@Test 
+	public void ThisWillTestDelimiter() {
+		Assert.assertEquals(calc.add("//;\n1;2"), 3);
+	}
 }

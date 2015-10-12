@@ -8,6 +8,14 @@ public class Calculator {
 	private int StringToInt(String string) {
 		return Integer.parseInt(string);
 	}
+	
+	private int addNumbers(String[] numbers) {
+		int sum = 0;
+		for (int i=0; i<numbers.length; i++) {
+			sum += StringToInt(numbers[i]);
+		}
+		return sum;
+	}
 
 	public int add(String string) {
 		if(isEmpty(string))
@@ -20,16 +28,17 @@ public class Calculator {
 			{
 				return StringToInt(string);
 			}
+			else if (string.startsWith("//"))
+			{
+				String delim = string.substring(2, 3);
+				String tempo = string.substring(4);
+				String[] arr = tempo.split(delim);
+				return addNumbers(arr);
+			}
 			else
 			{
-				String regexp = "[\\n,]";
-				String[] arr = string.split(regexp);
-				// Need to handle unlimited number of arguments
-				int sum = 0;
-				for (int i=0; i<arr.length; i++) {
-					sum += StringToInt(arr[i]);
-				}
-				return sum;
+				String[] arr = string.split("[\\n,;]");
+				return addNumbers(arr);
 			}
 			
 		}
