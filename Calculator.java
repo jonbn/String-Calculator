@@ -15,7 +15,14 @@ public class Calculator {
 	private int addNumbers(String[] numbers) {
 		int sum = 0;
 		for (int i = 0; i < numbers.length; i++) {
-				sum += StringToInt(numbers[i]);
+				if(StringToInt(numbers[i]) > 1000)
+				{
+					continue;
+				}
+				else
+				{
+					sum += StringToInt(numbers[i]);
+				}
 		}
 		return sum;
 	}

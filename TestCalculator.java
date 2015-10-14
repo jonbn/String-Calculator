@@ -40,4 +40,8 @@ public class TestCalculator {
 	public void ThisWillTestNegativeNumber() {
 		Assert.assertEquals(calc.add("2,-4,3,-5"), -1);
 	}
+	@Test
+	public void ThisWillTestNumbersBiggerThanThousend() {
+		Assert.assertEquals(calc.add("1001,1000,2"), 1002);
+	}
 }
