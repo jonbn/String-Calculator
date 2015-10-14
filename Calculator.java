@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
 
-import org.omg.IOP.ExceptionDetailMessage;
 
 public class Calculator {
 	
@@ -58,16 +57,16 @@ public class Calculator {
 			}
 			if(containsNegative(arr))
 			{
-				String negative = "";
+				List keep = new ArrayList();
 				for(int i = 0; i < arr.length; i++)
 				{
 					if (StringToInt(arr[i]) < 0)
 					{
-						negative += negative + arr[i];
+						keep.add(arr[i]);
 					}
 						
 				}
-				throw new ArithmeticException("Negatives not allowed:" + negative);
+				throw new ArithmeticException("Negatives not allowed: " + keep.toString().replaceAll("\\[|\\]", ""));
 			}
 			return addNumbers(arr);
 			
