@@ -30,10 +30,14 @@ public class TestCalculator {
 	}
 	@Test
 	public void ThisWillTestNewlines() {
-		Assert.assertEquals(calc.add("1\n2,3"), 6);
+		Assert.assertEquals(calc.add("3\n2\n1"), 6);
 	}
 	@Test 
 	public void ThisWillTestDelimiter() {
 		Assert.assertEquals(calc.add("//;\n1;2"), 3);
+	}
+	@Test(expectedExceptions = ArithmeticException.class)
+	public void ThisWillTestNegativeNumber() {
+		Assert.assertEquals(calc.add("2,-4,3,-5"), -1);
 	}
 }

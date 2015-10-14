@@ -1,3 +1,7 @@
+import java.util.ArrayList;
+import java.util.List;
+
+import org.omg.IOP.ExceptionDetailMessage;
 
 public class Calculator {
 	
@@ -11,13 +15,25 @@ public class Calculator {
 	
 	private int addNumbers(String[] numbers) {
 		int sum = 0;
-		for (int i=0; i<numbers.length; i++) {
-			sum += StringToInt(numbers[i]);
+		for (int i = 0; i < numbers.length; i++) {
+				sum += StringToInt(numbers[i]);
 		}
 		return sum;
 	}
+	
+	private boolean containsNegative(String[] numbers) {
+		for(int i = 0; i < numbers.length; i++)
+		{
+			if(StringToInt(numbers[i]) < 0)
+			{
+				return true;
+			}
+		}
+		return false;
+	}
 
 	public int add(String string) {
+		String[] arr = null;
 		if(isEmpty(string))
 		{
 			return 0;
@@ -32,14 +48,28 @@ public class Calculator {
 			{
 				String delim = string.substring(2, 3);
 				String tempo = string.substring(4);
-				String[] arr = tempo.split(delim);
-				return addNumbers(arr);
+				//String[] arr = tempo.split(delim);
+				arr = tempo.split(delim);
 			}
 			else
 			{
-				String[] arr = string.split("[\\n,;]");
-				return addNumbers(arr);
+				//String[] arr = string.split("[\\n,;]");
+				arr = string.split("[\\n,]");
 			}
+			if(containsNegative(arr))
+			{
+				String negative = "";
+				for(int i = 0; i < arr.length; i++)
+				{
+					if (StringToInt(arr[i]) < 0)
+					{
+						negative += negative + arr[i];
+					}
+						
+				}
+				throw new ArithmeticException("Negatives not allowed:" + negative);
+			}
+			return addNumbers(arr);
 			
 		}
 		return StringToInt(string);
