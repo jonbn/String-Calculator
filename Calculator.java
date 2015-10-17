@@ -50,16 +50,18 @@ public class Calculator {
 			{
 				return StringToInt(string);
 			}
+			
 			else if (string.startsWith("//"))
 			{
+				//     //;\n     //***###\n1***2###3
+				int delim_end = string.indexOf("\n");   
 				String delim = string.substring(2, 3);
-				String tempo = string.substring(4);
-				//String[] arr = tempo.split(delim);
+				//String tempo = string.substring(4);
+				String tempo = string.substring(delim_end + 1);
 				arr = tempo.split(delim);
 			}
 			else
 			{
-				//String[] arr = string.split("[\\n,;]");
 				arr = string.split("[\\n,]");
 			}
 			if(containsNegative(arr))

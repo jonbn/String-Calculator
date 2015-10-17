@@ -44,4 +44,8 @@ public class TestCalculator {
 	public void ThisWillTestNumbersBiggerThanThousend() {
 		Assert.assertEquals(calc.add("1001,1000,2"), 1002);
 	}
+	@Test
+	public void ThisWillTestMultipleDelimiters() {
+		Assert.assertEquals(calc.add("//*$!\n1*2$3"), 6);
+	}
 }
